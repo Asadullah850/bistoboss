@@ -9,14 +9,14 @@ import MenuCategory from './MenuCategory';
 
 const Menu = () => {
     const [menu] = useMenu()
-    console.log(menu);
+    // console.log(menu);
     const dessert = menu.filter(item => item.category === 'dessert')
     const pizza = menu.filter(item => item.category === 'pizza')
     const salad = menu.filter(item => item.category === 'salad')
     const offered = menu.filter(item => item.category === 'offered')
     const soup = menu.filter(item => item.category === 'soup')
     const popular = menu.filter(item => item.category === 'popular')
-    console.log(popular);
+    // console.log(popular);
 
     return (
 
@@ -27,26 +27,34 @@ const Menu = () => {
             <Cover imgs={'https://i.ibb.co/4fkFgJ5/banner3.jpg'} title={"Our menu "} subTitle="
             Would you like to try a dish?
             "></Cover>
-            <SectionTitel subheader={"Don't Miss"}
+            {/*  */}
+            <SectionTitel subheader={"--- Don't Miss ---"}
                 header={"todays offer"}>
             </SectionTitel>
-            <MenuCategory items={offered}  coverImg=''></MenuCategory>
-            <Cover imgs={'https://i.ibb.co/Y0MKkMj/banner.jpg'} title={"DESSERTS"} subTitle="
-            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            "></Cover>
-            <MenuCategory items={dessert}  coverImg=''></MenuCategory>
-            <Cover imgs={'https://i.ibb.co/FWYxvv7/category-pizza.jpg'} title={"PIZZA"} subTitle="
-            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            "></Cover>
-            <MenuCategory items={pizza}  coverImg=''></MenuCategory>
-            <Cover imgs={'https://i.ibb.co/R24w3Fv/salad-bg.jpg'} title={"SALADS"} subTitle="
-            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            "></Cover>
-            <MenuCategory items={salad}  coverImg=''></MenuCategory>
-            <Cover imgs={'https://i.ibb.co/Brm2jt4/soup-bg.jpg'} title={"SALADS"} subTitle="
-            Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            "></Cover>
-            <MenuCategory items={soup}  coverImg=''></MenuCategory>
+            <MenuCategory items={offered}  coverImg='https://i.ibb.co/VWyfB3G/banner2.jpg' subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} title='offered'></MenuCategory>
+            {/*  */}
+            {/*  */}
+            <SectionTitel subheader={"---DESSERT ---"}
+                header={""}>
+            </SectionTitel>
+            <MenuCategory items={dessert} coverImg='https://i.ibb.co/Brm2jt4/soup-bg.jpg' subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} title='dessert'></MenuCategory>
+            {/*  */}
+            {/*  */}
+            <SectionTitel subheader={"---PIZZA ---"}
+                header={""}>
+            </SectionTitel>
+            <MenuCategory items={pizza} coverImg='https://i.ibb.co/FWYxvv7/category-pizza.jpg' subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} title='pizza'></MenuCategory>
+            {/*  */}
+            {/*  */}
+            <SectionTitel subheader={"---SALADS ---"}
+                header={""}>
+            </SectionTitel>
+            <MenuCategory items={salad} coverImg='https://i.ibb.co/R24w3Fv/salad-bg.jpg' subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} title='salad'></MenuCategory>
+            {/*  */}
+            <SectionTitel subheader={"--- SOUPS ---"}
+                header={""}>
+            </SectionTitel>
+            <MenuCategory items={soup}  coverImg='https://i.ibb.co/Brm2jt4/soup-bg.jpg' subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} title='soup'></MenuCategory>
 
 
         </div>

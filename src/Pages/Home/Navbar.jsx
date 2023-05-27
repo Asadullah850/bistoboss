@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -19,9 +19,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/menu'>Menu</Link></li>
-                    <li><Link to='/order'>Order</Link></li>
+                    <li><NavLink to='/'>Home</NavLink></li>
+                    <li><NavLink to='/menu'>Menu</NavLink></li>
+                    <li><NavLink to='/order/salad'>Order</NavLink></li>
                     <li><a>Item 3</a></li>
                 </ul>
             </div>
