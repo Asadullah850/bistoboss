@@ -6,7 +6,6 @@ const Featured = () => {
         <div>
             <SectionTitel subheader={"---- From 11.00am to 10.00 pm ----"}
                 header={"order Online"}>
-
             </SectionTitel>
         </div>
     );

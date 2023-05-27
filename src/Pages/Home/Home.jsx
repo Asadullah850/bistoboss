@@ -5,10 +5,14 @@ import SectionTitel from '../Titel/SectionTitel';
 import PopularMenu from '../PopulaeMenu/PopularMenu';
 import MenuItems from '../PopulaeMenu/MenuItems';
 import Testimonials from './TESTIMONIALS/TESTIMONIALS';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Bistro | Home</title>
+            </Helmet>
             <div className="mb-5">
                 <Banner></Banner>
             </div>
@@ -32,8 +36,8 @@ const Home = () => {
                 </div>
             </div>
             <div className="">
-          
-            <PopularMenu></PopularMenu>
+
+                <PopularMenu></PopularMenu>
             </div>
             <Testimonials></Testimonials>
         </div>
