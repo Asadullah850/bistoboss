@@ -8,9 +8,11 @@ import Menu from "../Pages/Share/Menu";
 import Order from "../Pages/OrderPage/Order";
 import Login from "./Login";
 import Register from "./Register";
-import Dashboard from "../Layout/Dashboard";
-import MyCart from "../Pages/Dashboard/MyCart";
 import PrivetRoute from "./PrivetRoute";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import MyCart from "../Pages/Dashboard/MyCart";
+import AllUsers from "../Pages/AdMin/AllUsers";
+import AdminHome from "../Pages/AdMin/AdminHome";
 
  export const router = createBrowserRouter([
     {
@@ -50,6 +52,14 @@ import PrivetRoute from "./PrivetRoute";
         {
           path:'mycart',
           element:<MyCart></MyCart>
+        },
+        {
+          path:'adminhome',
+          element:<AdminHome></AdminHome>
+        },
+        {
+          path:'allusers',
+          element:<AllUsers></AllUsers>
         },
       ],
     },
