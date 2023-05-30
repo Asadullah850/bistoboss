@@ -3,6 +3,7 @@ import logins from '../../src/assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from './AuthProviders';
 import { useLocation, useNavigate } from 'react-router-dom';
+import SocailLogin from '../Pages/Share/SocailLogin';
 
 const Login = () => {
     const captchaRef = useRef(null)
@@ -41,28 +42,6 @@ const Login = () => {
             });
     }
 
-    const handelGoogleLog = () => {
-        googleLogin()
-        .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            // IdP data available using getAdditionalUserInfo(result)
-            navigate(from, { replace: true })
-            // ...
-          }).catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.customData.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
-          });
-    }
 
     const handelCaptcha = () => {
         seterr('')
@@ -109,7 +88,7 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <button disabled={disabled} type='submit' className="btn btn-primary">Login</button>
-                            <button onClick={handelGoogleLog} type='submit' className="btn btn-primary">Google</button>
+                            <SocailLogin></SocailLogin>
                         </div>
                     </div>
                 </form>

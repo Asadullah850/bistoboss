@@ -8,12 +8,7 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [cart] = useCart();
     const handelLogOut = () => {
-        logOut()
-            .then(() => {
-                // Sign-out successful.
-            }).catch((error) => {
-                // An error happened.
-            });
+        logOut().then(() => { }).catch((error) => {});
     }
     return (
         <div className="navbar bg-black/50 text-white fixed z-10 w-[95%] mx-auto">

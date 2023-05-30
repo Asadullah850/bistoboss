@@ -3,6 +3,7 @@ import login from '../../src/assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from './AuthProviders';
 import { useNavigate } from 'react-router-dom';
+import SocailLogin from '../Pages/Share/SocailLogin';
 
 const Register = () => {
     const captchaRef = useRef(null)
@@ -21,19 +22,34 @@ const Register = () => {
         const email = form.email.value;
         const photoURL = form.photoURL.value;
         const pass = form.pass.value;
-        const userData = {
-            email, pass, displayName, photoURL
-        }
-        console.log(userData);
-        newUser(email, pass).then((userCredential) => {
+      
+        newUser(email, pass)
+        .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             updateUser(displayName, photoURL)
                 .then((data) => {
+                    const userData = {displayName, email, photoURL}
+                    // console.log('32',userData);
+
                     // Profile updated!
-                    console.log(data);
-                    navigate('/')
+                    fetch(`http://localhost:3000/users`,{
+                        method:"POST",
+                        headers:{
+                            'content-type':'application/json'
+                        },
+                        body: JSON.stringify(userData)
+                    })
+                    .then(res => res.json())
+                    .then(data =>{
+                        // console.log('43',data);
+                        if(data.insertedId){
+                            navigate('/')
+                        }
+                    })
+                    
                 }).catch((error) => {
+                    // console.log(error);
                     // An error occurred
                     // ...
                 });
@@ -106,6 +122,7 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button disabled={disabled} type='submit' className="btn btn-primary">Login</button>
                         </div>
+                        <SocailLogin></SocailLogin>
                     </div>
                 </form>
             </div>
