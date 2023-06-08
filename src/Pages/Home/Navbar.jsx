@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../Router/AuthProviders';
 import { HiUser, HiShoppingCart } from "react-icons/hi";
 import useCart from '../../hooks/useCart';
@@ -7,9 +7,10 @@ import useCart from '../../hooks/useCart';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [ cart ] = useCart();
+    const navigate = useNavigate()
     console.log(cart);
     const handelLogOut = () => {
-        logOut().then(() => { }).catch((error) => {});
+        logOut().then(() => {}).catch((error) => {});
     }
     return (
         <div className="navbar bg-black/50 text-white fixed z-10 w-[95%] mx-auto">
@@ -54,7 +55,7 @@ const Navbar = () => {
                         {
                             user ?
                                 <>
-                                    <li onClick={handelLogOut}> <a>LogOut</a></li>
+                                    <Link to='/' ><li onClick={handelLogOut}> LogOut</li></Link>
                                 </>
                                 :
                                 <>

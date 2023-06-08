@@ -12,7 +12,6 @@ const useAxiosSerous = () => {
     const { logOut } = useAuth();
     const navigate = useNavigate();
 
-
     useEffect(()=>{
         axiosSecure.interceptors.request.use((config)=>{
             const token = localStorage.getItem('token');
@@ -31,7 +30,7 @@ const useAxiosSerous = () => {
                 return Promise.reject(error);
             }
         );
-    },[logOut, navigate, axiosSecure])
+    },[logOut, navigate])
 
     return [ axiosSecure];
 };
