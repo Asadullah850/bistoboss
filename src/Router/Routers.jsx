@@ -13,6 +13,10 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart";
 import AllUsers from "../Pages/AdMin/AllUsers";
 import AdminHome from "../Pages/AdMin/AdminHome";
+import AdItem from "../Pages/Dashboard/AddItem/AdItem";
+import AdminRoute from "./AdminRoute";
+import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
  export const router = createBrowserRouter([
     {
@@ -59,7 +63,19 @@ import AdminHome from "../Pages/AdMin/AdminHome";
         },
         {
           path:'allusers',
-          element:<AllUsers></AllUsers>
+          element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path:'payment',
+          element:<Payment></Payment>
+        },
+        {
+          path:'addItem',
+          element:<AdminRoute><AdItem></AdItem></AdminRoute>
+        },
+        {
+          path:'manageitems',
+          element:<AdminRoute><ManageItems></ManageItems></AdminRoute>
         },
       ],
     },

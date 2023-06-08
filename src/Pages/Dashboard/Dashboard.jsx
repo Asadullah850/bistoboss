@@ -1,15 +1,19 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { HiShoppingCart, HiHome, HiCalendar, HiShoppingBag,  } from "react-icons/hi";
-import { FaEnvelope, FaBook, FaEnvelopeOpenText, FaAlignJustify,FaUsers, FaListUl } from "react-icons/fa";
+import { HiShoppingCart, HiHome, HiCalendar, HiShoppingBag, } from "react-icons/hi";
+import { FaEnvelope, FaBook, FaEnvelopeOpenText, FaAlignJustify, FaUsers, FaListUl } from "react-icons/fa";
 import { GiWallet } from "react-icons/gi";
 import { BsFillCalendarPlusFill } from "react-icons/bs";
 import { MdRestaurant } from "react-icons/md";
 import useCart from '../../hooks/useCart';
+import useAdmin from '../../hooks/useAdmin';
 
 const Dashboard = () => {
     const [cart] = useCart();
-    const isAdmin = true;
+    // const isAdmin = true;
+
+    const [isAdmin] = useAdmin();
+
     return (
         <div className="drawer drawer-mobile">
             {/* <div className=""> */}
@@ -37,18 +41,19 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li>
                                 <li className='text-black'>
-                                    <NavLink>
+                                    <NavLink to='/dashboard/addItem'>
                                         <MdRestaurant className='text-xl'></MdRestaurant>
                                         add items
-                                    </NavLink></li>
+                                    </NavLink>
+                                </li>
                                 <li className='text-black'>
-                                    <NavLink >
+                                    <NavLink to='/dashboard/manageitems'>
                                         < FaListUl className='text-xl'></FaListUl>
                                         manage items
                                     </NavLink>
                                 </li>
                                 <li className='text-black'>
-                                    <NavLink>
+                                    <NavLink to='/dashboard/mycart'>
                                         <FaBook className='text-xl'></FaBook>
                                         Manage bookings
                                     </NavLink>

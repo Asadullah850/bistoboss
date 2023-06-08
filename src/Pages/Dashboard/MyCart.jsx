@@ -4,9 +4,11 @@ import useCart from '../../hooks/useCart';
 import SectionTitel from '../Titel/SectionTitel';
 import { FaTrash } from "react-icons/fa";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyCart = () => {
     const [cart, refetch] = useCart();
+    console.log(cart);
     const Total = cart.reduce((sum, val) => sum + val.price, 0)
 
     const deleteCartProduct = (id) => {
@@ -49,7 +51,9 @@ const MyCart = () => {
             <div className="flex justify-evenly my-2">
                 <h3 className='text-lg'>Total Items: <span className='mx-1'>{cart.length || 0}</span></h3>
                 <h3 className='text-lg'>Total Price: <span className='mx-1'>${Total}</span></h3>
+                <Link to='/dashboard/payment'>
                 <button className='btn btn-sm bg-[#D1A054] border-none'>pay</button>
+                </Link>
             </div>
             <div className="w-[95%] mx-auto">
                 <div className="overflow-x-auto w-full">

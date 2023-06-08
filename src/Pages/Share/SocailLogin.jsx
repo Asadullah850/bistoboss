@@ -6,8 +6,8 @@ import { FcGoogle } from "react-icons/fc";
 
 const SocailLogin = () => {
     const { googleLogin } = useContext(AuthContext)
-    const location = useLocation()
-    const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/'
 
@@ -40,6 +40,7 @@ const SocailLogin = () => {
                           navigate(from, { replace: true })
                         }
                     })
+                    navigate(from, { replace: true })
             
             // ...
           }).catch((error) => {

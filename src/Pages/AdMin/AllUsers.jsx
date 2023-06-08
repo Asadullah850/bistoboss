@@ -4,11 +4,14 @@ import { Helmet } from 'react-helmet-async';
 import SectionTitel from '../Titel/SectionTitel';
 import { FaEdit, FaTrash, FaUsersCog } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import useAxiosSerous from '../../hooks/useAxiosSerous';
 
 const AllUsers = () => {
+    const [axiosSecure] =  useAxiosSerous();
+
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch(`http://localhost:3000/users`)
-        return res.json();
+        const res = await axiosSecure.get(`/users`)
+        return res.data;
     })
 
     const handelMakeAdmin = (id) => {
@@ -18,28 +21,28 @@ const AllUsers = () => {
             showCancelButton: true,
             confirmButtonText: 'Admin',
             denyButtonText: `Don't Admin`,
-          }).then((result) => {
+        }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/users/admin/${id}`,{
+                fetch(`http://localhost:3000/users/admin/${id}`, {
 
-                    method:"PATCH",
+                    method: "PATCH",
                 })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.modifiedCount) {
-                        Swal.fire('Saved!', '', 'success')
-                        refetch()
-                    }
-                    console.log(data);
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.modifiedCount) {
+                            Swal.fire('Saved!', '', 'success')
+                            refetch()
+                        }
+                        console.log(data);
+                    })
 
             } else if (result.isDenied) {
-              Swal.fire('Changes are not saved')
+                Swal.fire('Changes are not saved')
             }
-          })
-        
+        })
+
     }
 
     const deleteCartProduct = (id) => {
@@ -87,9 +90,9 @@ const AllUsers = () => {
                                 <td>{user.email}</td>
                                 <td>
                                     {
-                                        user.roll === 'admin' ? 'Admin' :
-                                        <button onClick={()=>handelMakeAdmin(user._id)} className="btn btn-ghost bg-[#c07c16] hover:bg-[#513408]">
-                                            <FaUsersCog className=' text-white text-xl'></FaUsersCog>
+                                        user.roll === 'admin' ? 'admin' :
+                                            <button onClick={() => handelMakeAdmin(user._id)} className="btn btn-ghost bg-[#c07c16] hover:bg-[#513408]">
+                                                <FaUsersCog className=' text-white text-xl'></FaUsersCog>
                                             </button>
                                     }
                                 </td>

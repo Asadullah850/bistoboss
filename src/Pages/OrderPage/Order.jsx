@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Cover from '../Share/Cover';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import tab from './order.css'
 import useMenu from '../../hooks/useMenu';
 import Card from '../../Card/Card';
 import OrderTab from './OrderTab';
