@@ -42,7 +42,7 @@ const MyCart = () => {
         // console.log(id);
     }
     return (
-        <div className='w-full'>
+        <div className='w-full h-screen'>
             <Helmet>
                 <title>Bistro | My Cart</title>
             </Helmet>

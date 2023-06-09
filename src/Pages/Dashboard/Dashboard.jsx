@@ -68,7 +68,7 @@ const Dashboard = () => {
                             :
                             <>
                                 <li className='text-black'>
-                                    <NavLink to={'/'}>
+                                    <NavLink to={'/dashboard/userhome'}>
                                         <HiHome className='text-xl'></HiHome>
                                         User Home
                                     </NavLink>
